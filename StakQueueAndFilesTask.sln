@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StakQueueAndFilesTask", "StakQueueAndFilesTask.csproj", "{7F0551C3-1D9F-418F-B3BE-2ECC7889D506}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F0551C3-1D9F-418F-B3BE-2ECC7889D506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0551C3-1D9F-418F-B3BE-2ECC7889D506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0551C3-1D9F-418F-B3BE-2ECC7889D506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0551C3-1D9F-418F-B3BE-2ECC7889D506}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA7547E1-3C16-42AE-84DC-15D3E0A8CA49}
+	EndGlobalSection
+EndGlobal
