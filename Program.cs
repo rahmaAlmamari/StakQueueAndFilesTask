@@ -23,8 +23,10 @@ namespace StakQueueAndFilesTask
             <div><p></p></div> is valid, but <div><p></div></p> is not).
          */
 
-
+        //1 .....
         static Stack<char> ReverseWord = new Stack<char>();
+        //2 ....
+        //static Stack<char> calculation = new Stack<char>();
         static void Main(string[] args)
         {
             // we use while loop to repeat the process and we set true so it will not stop ... 
@@ -56,7 +58,15 @@ namespace StakQueueAndFilesTask
                         //to call the UniqueWordsExtractor method ...
                         ReverseStringUsingStack(word); 
                         break;
-                    //case 2: ViewAllRooms(); break;
+
+                    case 2:
+                        string operation;
+                        Console.WriteLine("Enter your mathematical operation");
+                        operation = Console.ReadLine();
+                        // Applying Trim() method to remove space from operation varaible ...
+                        string operationWithoutSpace = operation.Trim();
+                        EvaluatePostfixExpression(operationWithoutSpace); 
+                        break;
                     //case 3: ReserveRoomForGues(); break;
                     //case 4: ViewAllReservationsWithTotalCost(); break;
                     //case 5: SearchReservationByGuestName(); break;
@@ -85,6 +95,76 @@ namespace StakQueueAndFilesTask
             {
                 Console.WriteLine(letter); 
             }
+        }
+        //2. Evaluate Postfix Expression ...
+        public static void EvaluatePostfixExpression(string operation)
+        {
+            //to store each character ...
+            Stack<char> calculation = new Stack<char>(); 
+            foreach (char part in operation)
+            {
+                //to push all characters to stack ...
+                calculation.Push(part); 
+            }
+
+            //to store intermediate results ...
+            Stack<int> valueStack = new Stack<int>(); 
+
+            while (calculation.Count > 0)
+            {
+                //to get top item from stack ...
+                char item = calculation.Pop(); 
+
+                // if it is a number, push it to valueStack ...
+                if (char.IsDigit(item))
+                {
+                    //to convert char to int ...
+                    int value = (int)char.GetNumericValue(item);
+                    valueStack.Push(value);
+                }
+                else
+                {
+                    //it is operator ...
+                    char process = item;
+
+                    //to pop two values to perform operation ...
+                    //to pop the first number from valueStack stack ...
+                    int num1 = valueStack.Pop();
+                    //to pop the second number from calculation stack and convert it to int 
+                    int num2 = (int)char.GetNumericValue(calculation.Pop());
+
+                    int result = 0;
+
+                    //to perform operation ...
+                    if (process == '+')
+                    {
+                        result = num2 + num1;
+                    }
+                    else if (process == '-')
+                    {
+                        result = num2 - num1;
+                    }
+                    else if (process == '*')
+                    {
+                        result = num2 * num1;
+                    }
+                    else if (process == '/')
+                    {
+                        result = num2 / num1;
+                    }
+                    else if (process == '%')
+                    {
+                        result = num2 % num1;
+                    }
+
+                    //to push result back to valueStack ...
+                    valueStack.Push(result);
+                }
+            }
+
+            //final result will be on top of valueStack ...
+            int finalResult = valueStack.Pop();
+            Console.WriteLine("Your result is: " + finalResult);
         }
 
     }
